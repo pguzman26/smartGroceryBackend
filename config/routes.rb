@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :edit]
 
   resources :books, except: [:new, :edit]
+
+
+  resources :groceries, except: [:new, :edit]
+
 end
+

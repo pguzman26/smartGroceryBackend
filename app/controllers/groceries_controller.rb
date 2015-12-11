@@ -7,7 +7,7 @@ class GroceriesController < ApplicationController
   def show    # i.e. read *one* grocery
     render json: Grocery.find(params[:id])
     if grocery.show(grocery_params)
-      render json: grocery
+      render json: grocery, status: :ok
     else
       render json: grocery.errors, status: :unprocessable_entity
     end
@@ -16,17 +16,17 @@ class GroceriesController < ApplicationController
   def create
     grocery = Grocery.create(grocery_params) # grocery_params
     if grocery.save
-      render json: grocery
+      render json: grocery, status: :created
     else
       render json: grocery.errors, status: :unprocessable_entity
     end
   end
 
   def update
-    grocery = Grocery.find(param[:id])
-    if grocery.update(grocery_params)
+    grocery = Grocery.find(params[:id])
+    if grocery.update(name: params[:name])
       grocery.save
-      render json: grocery
+      render json: grocery, status: :ok
     else
       render json: grocery.errors, status: :unprocessable_entity
     end

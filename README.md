@@ -1,3 +1,8 @@
+# Link to Frontend Repo
+
+https://github.com/gmankd/smart_grocery_frontend
+
+
 
 # User authentication
 
